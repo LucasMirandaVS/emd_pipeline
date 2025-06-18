@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  prefect-server:
+    image: prefecthq/prefect:2.14.10-python3.11
+    command: prefect server start
+    ports:
+      - "4200:4200"
+    environment:
+      - PREFECT_UI_URL=http://localhost:4200
+
+  prefect-agent:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    environment:
+      - PREFECT_API_URL=http://prefect-server:4200/api
+    volumes:
+      - ../:/app
+      - ~/.prefect:/root/.prefect
+    depends_on:
+      - prefect-server
