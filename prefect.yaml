@@ -1,0 +1,18 @@
+# prefect.yaml
+
+name: etl_terceirizados_project
+prefect-version: 2.14.10
+
+# Onde estão os flows Python
+flows:
+  main:
+    entrypoint: etl/flow.py:main_flow
+
+# Diretório onde os deployments são salvos
+deployments:
+  - name: etl_terceirizados
+    flow_name: main
+    work_pool:
+      name: default-agent-pool
+      work_queue_name: default
+
