@@ -1,5 +1,3 @@
-# Desafio Engenharia de Dados —
-
 Projeto de engenharia de dados desenvolvido como solução para um desafio técnico. O objetivo é construir um pipeline de dados que realiza a extração, transformação e carga (ETL) de dados públicos disponibilizados pela CGU (Controladoria-Geral da União) sobre trabalhadores terceirizados.
 
 ---
